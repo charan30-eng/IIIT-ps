@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DawaDhwani — Desktop Caregiver Platform</title>
+  <meta name="description" content="Professional desktop caregiver dashboard for DawaDhwani voice-first medicine companion for seniors and Alzheimer's patients.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- =====================================================================
+         DESKTOP COLLAPSIBLE SIDEBAR
+         ===================================================================== -->
+    <aside class="app-sidebar" id="app-sidebar">
+      <div class="sidebar-header">
+        <a href="#dashboard" class="brand-wrapper">
+          <div class="brand-logo-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            </svg>
+          </div>
+          <div class="brand-text-block">
+            <span class="brand-name">DawaDhwani</span>
+            <span class="brand-subtitle">Caregiver Studio</span>
+          </div>
+        </a>
+
+        <button class="sidebar-toggle-btn" id="sidebar-toggle" title="Toggle Sidebar Width">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+        </button>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="sidebar-nav">
+        <span class="nav-section-label">Care Overview</span>
+
+        <a href="#dashboard" class="nav-item active" data-view="dashboard">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+          </span>
+          <span class="nav-item-label">Dashboard</span>
+        </a>
+
+        <a href="#patients" class="nav-item" data-view="patients">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </span>
+          <span class="nav-item-label">Patients</span>
+        </a>
+
+        <a href="#medicines" class="nav-item" data-view="medicines">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>
+          </span>
+          <span class="nav-item-label">Medicines</span>
+        </a>
+
+        <a href="#calls" class="nav-item" data-view="calls">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span class="nav-item-label">Call Logs</span>
+        </a>
+
+        <span class="nav-section-label">Safety & Intelligence</span>
+
+        <a href="#alerts" class="nav-item" data-view="alerts">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </span>
+          <span class="nav-item-label">Alerts</span>
+          <span class="nav-item-badge" id="sidebar-alerts-badge">2</span>
+        </a>
+
+        <a href="#insights" class="nav-item" data-view="insights">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          </span>
+          <span class="nav-item-label">Care Insights</span>
+        </a>
+
+        <a href="#escalation" class="nav-item" data-view="escalation">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </span>
+          <span class="nav-item-label">Escalation Chain</span>
+        </a>
+
+        <span class="nav-section-label">System</span>
+
+        <a href="#settings" class="nav-item" data-view="settings">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </span>
+          <span class="nav-item-label">Settings</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <div class="helpline-quick-card">
+          <span class="helpline-label">Toll-Free Senior IVR Helpline</span>
+          <div class="helpline-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            1800-202-DAWA
+          </div>
+          <span class="helpline-note">Senior query: "Did I take my medicine?"</span>
+        </div>
+
+        <div class="sidebar-user-card">
+          <img src="assets/emma.jpg" alt="Emma Patel" class="user-avatar-small" onerror="this.src='assets/anita.jpg'">
+          <div class="user-meta-small">
+            <span class="user-name-small">Emma Patel</span>
+            <span class="user-role-small">Family Coordinator</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- =====================================================================
+         MAIN CONTENT AREA
+         ===================================================================== -->
+    <div class="main-wrapper">
+      <!-- TOP BAR -->
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <!-- Global Search -->
+          <div class="global-search-container">
+            <svg class="search-icon-pos" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="global-search-input" class="global-search-input" placeholder="Search patients, medicines, or call logs...">
+            <span class="search-shortcut-tag">Ctrl+K</span>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Live System Status Pill -->
+          <div class="system-health-pill" onclick="window.dawaApp.navigateTo('settings')" title="IVR Telephony & Scheduler Operational">
+            <span class="pulse-dot"></span>
+            <span>System Running</span>
+          </div>
+
+          <!-- Simulate Senior Call CTA -->
+          <button class="btn-simulate-call" onclick="window.dawaIvr.openReminderCall({patientName: 'Lakshmi Devi', patientId: 'P01', medicineName: 'BP Tablet', dose: '1 tablet', habitCue: 'After morning chai', id: 'SCH-01', attempts: 0})" title="Test incoming call on senior's feature phone">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Simulate Senior IVR Call
+          </button>
+
+          <!-- Notification Bell -->
+          <button class="topbar-icon-btn" id="notif-dropdown-btn" title="Care Alerts & Notifications">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            <span class="notification-count-badge" id="topbar-notif-badge">2</span>
+          </button>
+
+          <!-- Caregiver Profile Menu -->
+          <div class="profile-menu-trigger" id="profile-dropdown-btn">
+            <img src="assets/emma.jpg" alt="Emma Patel" class="profile-avatar-top" onerror="this.src='assets/anita.jpg'">
+            <span class="profile-name-top">Emma Patel</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+        </div>
+
+        <!-- Notification Dropdown Panel -->
+        <div class="dropdown-panel" id="notif-dropdown-panel">
+          <div class="dropdown-header">
+            <span class="dropdown-title">Care Notifications & Alerts</span>
+            <button class="btn btn-secondary btn-sm" onclick="window.dawaApp.markAllNotificationsRead()">Mark all read</button>
+          </div>
+          <div class="dropdown-list" id="notif-dropdown-list">
+            <!-- Rendered by app.js -->
+          </div>
+        </div>
+
+        <!-- Profile Dropdown Panel -->
+        <div class="dropdown-panel" id="profile-dropdown-panel" style="width: 260px;">
+          <div class="dropdown-header">
+            <div>
+              <strong style="font-size: 14px; color: var(--green-deep);">Emma Patel</strong>
+              <div style="font-size: 12px; color: var(--text-muted);">Primary Family Coordinator</div>
+            </div>
+          </div>
+          <div style="padding: 8px;">
+            <a href="#settings" class="dropdown-item" style="border:none; border-radius: var(--radius-sm);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              Profile & Preferences
+            </a>
+            <a href="#escalation" class="dropdown-item" style="border:none; border-radius: var(--radius-sm);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              Escalation Contacts
+            </a>
+            <div class="dropdown-item" style="border:none; border-radius: var(--radius-sm); color: var(--peach-primary);" onclick="window.dawaApp.resetAllDemoData()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+              Reset Demo Data
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- SCROLL BODY CONTENT -->
+      <main class="content-body">
+        
+        <!-- =================================================================
+             PAGE 1: DASHBOARD VIEW
+             ================================================================= -->
+        <section class="page-view active" id="view-dashboard">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Good morning, Emma</h1>
+              <p class="page-subtitle">Here's today's care overview across your family's basic phone reminder lines.</p>
+            </div>
+            <div class="page-actions-row">
+              <button class="btn btn-secondary" onclick="window.dawaIvr.openHelplineCall()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                Test Helpline Query
+              </button>
+              <button class="btn btn-primary" onclick="window.dawaModals.openAddMedicineModal()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                + Add Medicine
+              </button>
+            </div>
+          </div>
+
+          <!-- TOP 4 STAT CARDS -->
+          <div class="stats-grid-4">
+            <div class="stat-card">
+              <div class="stat-card-header">
+                <span class="stat-label">Patients</span>
+                <div class="stat-icon-circle stat-icon-green">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+              </div>
+              <div class="stat-value" id="stat-patients-count">3 Active</div>
+              <div class="stat-meta-note">
+                <span class="pulse-dot" style="width:6px; height:6px;"></span>
+                All IVR phone lines connected
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-card-header">
+                <span class="stat-label">Today's Medicines</span>
+                <div class="stat-icon-circle stat-icon-peach">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>
+                </div>
+              </div>
+              <div class="stat-value" id="stat-scheduled-count">8 Scheduled</div>
+              <div class="stat-meta-note">Across morning, afternoon & night</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-card-header">
+                <span class="stat-label">Reported Taken</span>
+                <div class="stat-icon-circle stat-icon-green">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+              </div>
+              <div class="stat-value" id="stat-reported-count">6</div>
+              <div class="stat-meta-note">Keypad confirmed responses</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-card-header">
+                <span class="stat-label">Needs Attention</span>
+                <div class="stat-icon-circle stat-icon-alert">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+              </div>
+              <div class="stat-value" id="stat-attention-count" style="color: var(--alert-primary);">2</div>
+              <div class="stat-meta-note">1 unacknowledged retry, 1 pattern alert</div>
+            </div>
+          </div>
+
+          <!-- DASHBOARD 2-COLUMN LAYOUT -->
+          <div class="dashboard-grid-layout">
+            <!-- LEFT COLUMN: TODAY'S MEDICATIONS TABLE -->
+            <div class="card-surface">
+              <div class="card-header-row">
+                <div>
+                  <h2 class="card-title">Today's Medications</h2>
+                  <p class="card-subtitle">Automated reminder schedule with real-time IVR keypad confirmation</p>
+                </div>
+                <div style="font-size: 13px; color: var(--text-muted);">
+                  Auto-syncing with telephony gateway
+                </div>
+              </div>
+
+              <!-- Strictly worded Table -->
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Time</th>
+                      <th>Patient</th>
+                      <th>Medicine</th>
+                      <th>Dose</th>
+                      <th>Status</th>
+                      <th>Attempts</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="dashboard-schedule-tbody">
+                    <!-- Dynamic rendering from app.js -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Mandatory Safety Note -->
+              <div class="safety-advisory-box" style="margin-top: 16px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <div>
+                  <strong>Safety Reporting Standard</strong>
+                  <p>Statuses are recorded strictly as <strong>"Reported Taken"</strong> based on telephone keypad inputs. The system does not verify physical ingestion or provide medical dosing guidance.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT COLUMN: LIVE MONITOR & ATTENTION FEEDS -->
+            <div class="widget-section">
+              <!-- Live Call Queue Monitor -->
+              <div class="live-monitor-card">
+                <div class="monitor-header-row">
+                  <div>
+                    <h3 style="font-size: 16px; font-weight: 700; color: var(--green-deep);">Automated Call Queue</h3>
+                    <div style="font-size: 12px; color: var(--text-muted);">Cloud telephony SIP engine</div>
+                  </div>
+                  <span class="status-badge status-amber" style="font-size: 11px;">Live Queue</span>
+                </div>
+                <div id="dashboard-live-call-list">
+                  <!-- Rendered dynamically -->
+                </div>
+              </div>
+
+              <!-- Urgent Attention Feed -->
+              <div class="card-surface" style="padding: var(--space-5);">
+                <div class="monitor-header-row">
+                  <h3 style="font-size: 16px; font-weight: 700; color: var(--alert-primary);">Urgent Attention</h3>
+                  <a href="#alerts" style="font-size: 12px; font-weight: 600; color: var(--green-primary);">View All</a>
+                </div>
+                <div id="dashboard-alerts-feed">
+                  <!-- Rendered dynamically -->
+                </div>
+              </div>
+
+              <!-- System Health Status Diagnostic -->
+              <div class="card-surface" style="padding: var(--space-5);">
+                <div class="monitor-header-row">
+                  <h3 style="font-size: 16px; font-weight: 700; color: var(--green-deep);">System Diagnostics</h3>
+                  <span class="status-badge status-green" style="font-size: 11px;">● All Normal</span>
+                </div>
+                <table class="sys-health-table">
+                  <tbody>
+                    <tr>
+                      <td style="color: var(--text-secondary);">IVR Cron Scheduler</td>
+                      <td class="health-status-ok">Operational</td>
+                    </tr>
+                    <tr>
+                      <td style="color: var(--text-secondary);">SIP Telephony Gateway</td>
+                      <td class="health-status-ok">Operational</td>
+                    </tr>
+                    <tr>
+                      <td style="color: var(--text-secondary);">Adherence Data Store</td>
+                      <td class="health-status-ok">Operational</td>
+                    </tr>
+                    <tr>
+                      <td style="color: var(--text-secondary);">Escalation Dispatcher</td>
+                      <td class="health-status-ok">Operational</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             PAGE 2: PATIENTS PAGE
+             ================================================================= -->
+        <section class="page-view" id="view-patients">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Patients</h1>
+              <p class="page-subtitle">Manage family seniors receiving basic feature phone voice reminders</p>
+            </div>
+            <div class="page-actions-row">
+              <button class="btn btn-primary" onclick="window.dawaModals.openAddPatientModal()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                + Add Patient
+              </button>
+            </div>
+          </div>
+
+          <div class="filter-bar-row">
+            <div class="filter-chips-cluster">
+              <button class="chip-btn patient-chip-btn active" data-filter="all" onclick="window.dawaApp.filterPatients('all')">All Patients (3)</button>
+              <button class="chip-btn patient-chip-btn" data-filter="active" onclick="window.dawaApp.filterPatients('active')">System Active (3)</button>
+              <button class="chip-btn patient-chip-btn" data-filter="attention" onclick="window.dawaApp.filterPatients('attention')">Needs Attention (1)</button>
+            </div>
+          </div>
+
+          <div class="patient-cards-grid" id="patients-grid-container">
+            <!-- Dynamic patient cards rendered from app.js -->
+          </div>
+        </section>
+
+        <!-- =================================================================
+             PAGE 3: PATIENT DETAIL PAGE (Full profile, timeline & history)
+             ================================================================= -->
+        <section class="page-view" id="view-patient-detail">
+          <div class="breadcrumb-bar">
+            <a href="#patients" onclick="window.dawaApp.navigateTo('patients')">Patients</a>
+            <span>/</span>
+            <span id="pt-breadcrumb-name">Patient Profile</span>
+          </div>
+
+          <!-- Hero Profile Header -->
+          <div class="patient-hero-banner">
+            <div class="patient-hero-left">
+              <img src="assets/anita.jpg" alt="Patient Avatar" class="patient-hero-avatar" id="pt-detail-avatar">
+              <div>
+                <h1 class="patient-hero-title" id="pt-detail-name">Lakshmi Devi</h1>
+                <div style="font-size: 14px; color: var(--text-secondary);" id="pt-detail-sub">72 years • Female</div>
+                <div class="patient-meta-tags">
+                  <span class="pill-tag" id="pt-detail-phone">📞 +91 98451 22341</span>
+                  <span class="pill-tag">Nokia 105 Feature Phone (No App Required)</span>
+                  <span class="pill-tag" id="pt-detail-pin" style="color: var(--peach-tag-text);">PIN: 4122</span>
+                  <span class="status-badge status-green">System Active</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="page-actions-row">
+              <button class="btn btn-peach" onclick="window.dawaIvr.openReminderCall({patientName: document.getElementById('pt-detail-name').textContent, patientId: 'P01', medicineName: 'Prescribed Routine', dose: '1 dose', id: 'SCH-01'})">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                Trigger Test Call
+              </button>
+              <button class="btn btn-primary" onclick="window.dawaModals.openAddMedicineModal('P01')">
+                + Add Medicine
+              </button>
+            </div>
+          </div>
+
+          <!-- Tab Navigation -->
+          <div class="tab-navigation-bar">
+            <button class="tab-nav-btn pt-tab-nav-btn active" data-tab="timeline" onclick="window.dawaApp.switchPatientTab('timeline')">
+              Today's Medicine Timeline
+            </button>
+            <button class="tab-nav-btn pt-tab-nav-btn" data-tab="history" onclick="window.dawaApp.switchPatientTab('history')">
+              Medication Schedule
+            </button>
+            <button class="tab-nav-btn pt-tab-nav-btn" data-tab="calls" onclick="window.dawaApp.switchPatientTab('calls')">
+              Call History
+            </button>
+            <button class="tab-nav-btn pt-tab-nav-btn" data-tab="patterns" onclick="window.dawaApp.switchPatientTab('patterns')">
+              Pattern Alerts
+            </button>
+            <button class="tab-nav-btn pt-tab-nav-btn" data-tab="family" onclick="window.dawaApp.switchPatientTab('family')">
+              Family & Contacts
+            </button>
+          </div>
+
+          <!-- Tab 1: Timeline -->
+          <div class="patient-tab-content active" id="pt-tab-timeline">
+            <div class="card-surface">
+              <h3 class="card-title">Chronological Activity Log</h3>
+              <p class="card-subtitle">Automated reminder calls, keypad confirmation timestamps & retry attempts</p>
+              <div class="timeline-list" id="pt-timeline-list">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 2: Medication Schedule -->
+          <div class="patient-tab-content" id="pt-tab-history">
+            <div class="card-surface" id="pt-med-history-list">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Tab 3: Call History -->
+          <div class="patient-tab-content" id="pt-tab-calls">
+            <div class="card-surface" id="pt-call-history-list">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Tab 4: Pattern Alerts -->
+          <div class="patient-tab-content" id="pt-tab-patterns">
+            <div class="card-surface" id="pt-pattern-alerts-list">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Tab 5: Family Contacts -->
+          <div class="patient-tab-content" id="pt-tab-family">
+            <div class="card-surface" id="pt-family-contacts-list">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             PAGE 4: MEDICINES PAGE
+             ================================================================= -->
+        <section class="page-view" id="view-medicines">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Medicines</h1>
+              <p class="page-subtitle">Caregiver registered schedules for voice companion telephony</p>
+            </div>
+            <div class="page-actions-row">
+              <button class="btn btn-primary" onclick="window.dawaModals.openAddMedicineModal()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                + Add Medicine
+              </button>
+            </div>
+          </div>
+
+          <!-- Mandatory Medical Advice Disclaimer -->
+          <div class="medical-disclaimer-banner">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <div>
+              <strong>Caregiver Notice:</strong>
+              This application repeats the information entered by the caregiver. It does not provide medical dosing advice or clinical validation.
+            </div>
+          </div>
+
+          <div class="card-surface">
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Medicine</th>
+                    <th>Patient</th>
+                    <th>Dose</th>
+                    <th>Schedule</th>
+                    <th>Habit Cue</th>
+                    <th>Voice Language</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="medicines-tbody">
+                  <!-- Dynamic from app.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             PAGE 5: CALL LOGS
+             ================================================================= -->
+        <section class="page-view" id="view-calls">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Call Logs</h1>
+              <p class="page-subtitle">Automated outbound reminder calls and senior inbound helpline inquiries</p>
+            </div>
+          </div>
+
+          <div class="filter-bar-row">
+            <div class="filter-chips-cluster">
+              <button class="chip-btn call-chip-btn active" data-filter="all" onclick="window.dawaApp.filterCallLogs('all')">All Calls</button>
+              <button class="chip-btn call-chip-btn" data-filter="outgoing" onclick="window.dawaApp.filterCallLogs('outgoing')">Outgoing Reminders</button>
+              <button class="chip-btn call-chip-btn" data-filter="incoming" onclick="window.dawaApp.filterCallLogs('incoming')">Helpline Inbound</button>
+              <button class="chip-btn call-chip-btn" data-filter="missed" onclick="window.dawaApp.filterCallLogs('missed')">Missed / No Response</button>
+            </div>
+          </div>
+
+          <div class="card-surface">
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Patient</th>
+                    <th>Direction</th>
+                    <th>Call Type</th>
+                    <th>Attempt</th>
+                    <th>Key Pressed</th>
+                    <th>Result</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="call-logs-tbody">
+                  <!-- Dynamic from app.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             PAGE 6: ALERTS PAGE
+             ================================================================= -->
+        <section class="page-view" id="view-alerts">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Alerts & Escalations</h1>
+              <p class="page-subtitle">Automated notices for missed retries, helpline inquiries and response pattern shifts</p>
+            </div>
+          </div>
+
+          <div class="filter-bar-row">
+            <div class="filter-chips-cluster">
+              <button class="chip-btn alert-chip-btn active" data-filter="all" onclick="window.dawaApp.filterAlerts('all')">All Alerts</button>
+              <button class="chip-btn alert-chip-btn" data-filter="unresolved" onclick="window.dawaApp.filterAlerts('unresolved')">Unresolved</button>
+              <button class="chip-btn alert-chip-btn" data-filter="attention" onclick="window.dawaApp.filterAlerts('attention')">Needs Attention</button>
+              <button class="chip-btn alert-chip-btn" data-filter="pattern" onclick="window.dawaApp.filterAlerts('pattern')">Pattern Alerts</button>
+            </div>
+          </div>
+
+          <div class="alert-cards-column" id="alerts-column-container">
+            <!-- Dynamic alerts from app.js -->
+          </div>
+        </section>
+
+        <!-- =================================================================
+             PAGE 7: CARE INSIGHTS & ANALYTICS
+             ================================================================= -->
+        <section class="page-view" id="view-insights">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Care Insights</h1>
+              <p class="page-subtitle">Response latency trends and habit patterns compared with previous activity</p>
+            </div>
+          </div>
+
+          <!-- Mandatory Non-Diagnosis Safety Banner -->
+          <div class="safety-advisory-box" style="margin-bottom: 24px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <div>
+              <strong>Observational Data Principle</strong>
+              <p>This comparison uses each patient's own previous activity over the past 30 days. Pattern insights are behavioral observations, <strong>NOT medical diagnoses</strong>.</p>
+            </div>
+          </div>
+
+          <!-- Top Analytics Stats -->
+          <div class="stats-grid-4">
+            <div class="stat-card">
+              <span class="stat-label">Average Response Time</span>
+              <div class="stat-value">1.8 min</div>
+              <div class="stat-meta-note">+18s vs 30-day baseline</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">1st Attempt Confirmations</span>
+              <div class="stat-value">91.2%</div>
+              <div class="stat-meta-note">Keypad 1 on initial ring</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Helpline Self-Inquiries</span>
+              <div class="stat-value">14</div>
+              <div class="stat-meta-note">"Did I take my medicine?" queries</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Caregiver Escalation Rate</span>
+              <div class="stat-value">3.1%</div>
+              <div class="stat-meta-note">Required Level 3 notification</div>
+            </div>
+          </div>
+
+          <!-- Simple, Honest Visualizations Grid -->
+          <div class="insights-charts-grid">
+            <!-- Weekly Response Time Trend -->
+            <div class="chart-card">
+              <div class="card-header-row">
+                <div>
+                  <h3 class="card-title">Weekly Response Time Trend</h3>
+                  <p class="card-subtitle">Seconds elapsed before keypad 1 was pressed (Compared with baseline 45s)</p>
+                </div>
+              </div>
+              <div class="chart-bars-wrap" id="insights-weekly-bars">
+                <!-- Bar chart rendered by app.js -->
+              </div>
+              <div style="font-size: 12px; color: var(--text-muted); display: flex; justify-content: space-between;">
+                <span>● Green: Within patient baseline</span>
+                <span>● Peach: Unusual response pattern (>20s delay)</span>
+              </div>
+            </div>
+
+            <!-- Response Distribution -->
+            <div class="chart-card">
+              <div class="card-header-row">
+                <div>
+                  <h3 class="card-title">Response Breakdown</h3>
+                  <p class="card-subtitle">Call resolution distribution (Past 30 days)</p>
+                </div>
+              </div>
+              <div class="dist-stacked-bar">
+                <div class="dist-seg-green" style="width: 76%;" title="76% Reported Taken (1st Attempt)"></div>
+                <div class="dist-seg-amber" style="width: 16%;" title="16% Reported Taken (Retry #2)"></div>
+                <div class="dist-seg-red" style="width: 8%;" title="8% No Response (Escalated)"></div>
+              </div>
+              <div class="dist-legend">
+                <div class="legend-item">
+                  <span><span class="legend-bullet" style="background:var(--green-primary);"></span>Reported Taken (1st attempt)</span>
+                  <strong>76%</strong>
+                </div>
+                <div class="legend-item">
+                  <span><span class="legend-bullet" style="background:var(--amber-primary);"></span>Reported Taken (Retry attempt)</span>
+                  <strong>16%</strong>
+                </div>
+                <div class="legend-item">
+                  <span><span class="legend-bullet" style="background:var(--alert-primary);"></span>No Response / Caregiver Alerted</span>
+                  <strong>8%</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             PAGE 8: FAMILY & ESCALATION PROTOCOL
+             ================================================================= -->
+        <section class="page-view" id="view-escalation">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Family & Escalation Protocol</h1>
+              <p class="page-subtitle">Step-by-step tiered response when a scheduled medicine reminder is unanswered</p>
+            </div>
+          </div>
+
+          <!-- Visual 5-Step Escalation Protocol Chain -->
+          <div class="escalation-protocol-chain">
+            <div class="protocol-step-box">
+              <div class="step-number-tag">1</div>
+              <div class="step-title-text">Scheduled Voice Call</div>
+              <div class="step-desc-text">Cloud telephony calls senior’s basic phone at scheduled time in their language.</div>
+            </div>
+
+            <div class="protocol-step-box">
+              <div class="step-number-tag">2</div>
+              <div class="step-title-text">Automated Retry</div>
+              <div class="step-desc-text">If unanswered after 30 seconds, a second reminder call is placed in 15 minutes.</div>
+            </div>
+
+            <div class="protocol-step-box">
+              <div class="step-number-tag">3</div>
+              <div class="step-title-text">Family Caregiver</div>
+              <div class="step-desc-text">Instant SMS, push alert, and dashboard banner dispatched to Emma Patel.</div>
+            </div>
+
+            <div class="protocol-step-box">
+              <div class="step-number-tag">4</div>
+              <div class="step-title-text">Backup Contact</div>
+              <div class="step-desc-text">If unacknowledged after 30 minutes, Dr. Ramesh Sharma / Neighbor alerted.</div>
+            </div>
+
+            <div class="protocol-step-box pilot-step">
+              <div class="step-number-tag" style="background: #EFE7DC; color: #8A7A68;">5</div>
+              <div class="step-title-text">ASHA Worker Integration</div>
+              <div class="step-desc-text">Community health worker link. <br><strong style="color: var(--peach-primary);">[ Future / Pilot ]</strong></div>
+            </div>
+          </div>
+
+          <!-- Contact Cards Grid -->
+          <h2 style="font-family: var(--font-serif); font-size: 20px; color: var(--green-deep); margin-bottom: var(--space-4);">Designated Family & Backup Contacts</h2>
+          <div class="contact-cards-grid">
+            <div class="contact-card">
+              <div class="contact-card-header">
+                <img src="assets/emma.jpg" alt="Emma Patel" class="contact-avatar" onerror="this.src='assets/anita.jpg'">
+                <div>
+                  <strong style="font-size: 15px;">Emma Patel</strong>
+                  <div style="font-size: 12px; color: var(--text-secondary);">Primary Family Coordinator (Daughter)</div>
+                </div>
+              </div>
+              <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+                <div>📞 +91 98765 43210</div>
+                <div>✉️ emma.patel@caregiver.dawadhwani.in</div>
+                <div>Channels: Push Notification, SMS, Voice Fallback</div>
+                <div style="margin-top: 8px;"><span class="status-badge status-green">Active Responder</span></div>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-card-header">
+                <img src="assets/james.jpg" alt="James Patel" class="contact-avatar" onerror="this.src='assets/anita.jpg'">
+                <div>
+                  <strong style="font-size: 15px;">James Patel</strong>
+                  <div style="font-size: 12px; color: var(--text-secondary);">Family Member (Son)</div>
+                </div>
+              </div>
+              <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+                <div>📞 +91 98765 11223</div>
+                <div>Channels: SMS Alerts</div>
+                <div style="margin-top: 8px;"><span class="status-badge status-grey">Secondary</span></div>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-card-header">
+                <div style="width: 48px; height: 48px; border-radius: 999px; background: var(--peach-50); color: var(--peach-primary); display: flex; align-items: center; justify-content: center; font-weight: bold;">DR</div>
+                <div>
+                  <strong style="font-size: 15px;">Dr. Ramesh Sharma</strong>
+                  <div style="font-size: 12px; color: var(--text-secondary);">Family Physician & Neighbor</div>
+                </div>
+              </div>
+              <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+                <div>📞 +91 98450 11223</div>
+                <div>Role: Backup Contact (30m delay)</div>
+                <div style="margin-top: 8px;"><span class="status-badge status-amber">Tier 4 Backup</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             PAGE 9: SETTINGS
+             ================================================================= -->
+        <section class="page-view" id="view-settings">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Platform Settings</h1>
+              <p class="page-subtitle">Manage caregiver contact preferences, voice telephony settings, and diagnostics</p>
+            </div>
+          </div>
+
+          <div class="settings-grid-layout">
+            <div class="card-surface">
+              <h3 class="card-title">Caregiver Profile</h3>
+              <p class="card-subtitle">Contact info used for escalation alerts</p>
+              <form onsubmit="window.dawaApp.saveSettings(event)" style="margin-top: 16px;">
+                <div class="form-group">
+                  <label class="form-label" for="set-name">Full Name</label>
+                  <input type="text" id="set-name" class="form-input" value="Emma Patel">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="set-phone">Phone Number</label>
+                  <input type="tel" id="set-phone" class="form-input" value="+91 98765 43210">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="set-email">Email Address</label>
+                  <input type="email" id="set-email" class="form-input" value="emma.patel@caregiver.dawadhwani.in">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="set-lang">Default IVR Voice Language</label>
+                  <select id="set-lang" class="form-select">
+                    <option value="Hindi">Hindi (हिंदी)</option>
+                    <option value="Telugu">Telugu (తెలుగు)</option>
+                    <option value="Tamil">Tamil (தமிழ்)</option>
+                    <option value="Kannada">Kannada (ಕನ್ನಡ)</option>
+                    <option value="Gujarati">Gujarati (ગુજરાતી)</option>
+                    <option value="English">English</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="margin-top: 8px;">Save Settings</button>
+              </form>
+            </div>
+
+            <div class="card-surface">
+              <h3 class="card-title">Telephony & Simulation Tools</h3>
+              <p class="card-subtitle">Interactive tests for demonstration</p>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                <button class="btn btn-peach" onclick="window.dawaIvr.openReminderCall({patientName: 'Anita Patel', patientId: 'P03', medicineName: 'Heart Pill (Ecosprin)', dose: '1 tablet', habitCue: 'After afternoon rest', id: 'SCH-06'})">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  Simulate Outgoing Reminder Call
+                </button>
+
+                <button class="btn btn-secondary" onclick="window.dawaIvr.openHelplineCall()">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  Simulate Senior Helpline Call ("Did I take my medicine?")
+                </button>
+
+                <button class="btn btn-secondary" onclick="window.dawaApp.resetAllDemoData()">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                  Reset All Demo Data
+                </button>
+              </div>
+
+              <div class="safety-advisory-box" style="margin-top: 20px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <div>
+                  <strong>Backend REST Integration Note</strong>
+                  <p>In production, <code>services/api.js</code> communicates with <code>/api/patients</code>, <code>/api/medicines</code>, <code>/api/calls</code>, <code>/api/alerts</code> and <code>/api/insights</code>. Currently operating with real-time localStorage simulation.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="services/api.js"></script>
+  <script src="components/toast.js"></script>
+  <script src="components/ivr-simulator.js"></script>
+  <script src="components/modal.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
